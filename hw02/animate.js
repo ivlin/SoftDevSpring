@@ -1,27 +1,32 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
-ctx.fillStyle = "#FF0000";
+ctx.fillStyle = "#FF00FF";
 
+var animate=false;
 var radius=0;
-var isGrowing=true;
+var isGrowing=false;
 
-var drawCircle = function(x,y){
+var drawDot = function(){
     ctx.beginPath();
-    ctx.arc(x,y,radius,0,2*Math.PI);
-    ctx.fill();
-    ctx.closePath();
-};
-
-document.getElementById("start").addEventListener("click",function(){
-    if (radius == width/2){
+    if (radius >= canvas.width/2 || radius <= 0){
 	isGrowing = !isGrowing;
     }
     if (isGrowing) {radius+=1;}
-    else {radius-=1;}
+    else {radius-=1;ctx.clearRect(0,0,canvas.width,canvas.height);}
+    ctx.arc(canvas.width/2,canvas.height/2,radius,0,2*Math.PI);
+    ctx.fill();
+    ctx.closePath();
+    if (animate){
+	window.requestAnimationFrame(drawDot);
+    }
+};
+
+document.getElementById("start").addEventListener("click",function(){
+    animate=true;
     window.requestAnimationFrame(drawDot);
 });
 
 document.getElementById("stop").addEventListener("click",function(){
-
+    animate=false;
 });
