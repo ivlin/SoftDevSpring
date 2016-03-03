@@ -1,8 +1,8 @@
 /*
-Ivan Lin
-SoftDev2 pd3
-HW4 -- SVG Animation
-2016-2-29
+  Ivan Lin
+  SoftDev2 pd3
+  HW4 -- SVG Animation
+  2016-2-29
 */
 
 var svg = document.getElementById("vimage");
@@ -17,14 +17,15 @@ var animateDot = function animateDot(){
     var dot = document.createElementNS("http://www.w3.org/2000/svg","circle");
     dot.setAttribute("cx",x);
     dot.setAttribute("cy",y);
+    dot.setAttribute("r",radius);
     svg.appendChild(dot);
     animate= window.setInterval(function(){
+	var radius = dot.getAttribute("r");
 	if (radius < 0 || radius == x || radius == y){
 	    change *= -1;
 	}
-	radius+=change;
-	dot.setAttribute("r",radius);
-    },1000/60);
+	dot.setAttribute("r",(parseInt(dot.getAttribute("r"))+change));
+    },16);
 };
 
 var stopAnimate = function stopAnimate(){
