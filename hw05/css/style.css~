@@ -1,0 +1,7 @@
+div{
+    color:black;
+    text-align:right;
+    background-color:#FF9999;
+    margin:2px;
+    width:0px;
+}
