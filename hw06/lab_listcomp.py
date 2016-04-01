@@ -14,7 +14,11 @@ def ratePass(p):
     check = [-1 if x in UC_LETTERS else 1 if x in NUMBERS else 0 for x in p]
     rating += 10 - sum(check)
     check = [1 if x in NUMBERS or x in SYMBOLS else 0 for x in p]
-    rating += sum(check)
-    print 100.0*len(p)/rating
+    rating += 10.0*sum(check)/len(check)
+    print 10.0*len(p)/rating
 
 
+ratePass("aB1-");
+ratePass("WAHAHAHAHsdfoafnwoa3rqw9ah0roqwp;'342;'4");
+ratePass("hellohle12");
+ratePass("12312434243");
