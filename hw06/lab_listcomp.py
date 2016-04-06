@@ -19,8 +19,7 @@ def ratePass(p):
     rating += 20.0*sum(check)/len(check)
     return math.floor(10*len(p)/rating)
 
-
-print ratePass("aB1-");
-print ratePass("WAHAHAHAHsdfoafnwoa3rqw9ah0roqwp;'342;'4");
-print ratePass("hellohle12");
-print ratePass("122348952835");
+print ratePass("aB1-")
+print ratePass("WAHAHAHAHsdfoafnwoa3rqw9ah0roqwp;'342;'4")
+print ratePass("hellohle12")
+print ratePass("122348952835")
