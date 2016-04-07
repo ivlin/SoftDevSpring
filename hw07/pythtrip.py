@@ -1,3 +1,5 @@
+import random
+
 def pt(n):
     trips=[]
     for hyp in xrange(n):
@@ -14,8 +16,11 @@ def pt2(n):
             if leg1*leg1 + leg2*leg2 == hyp*hyp]
 
 def quicksort(arr):
-    return [quicksort(arr[:piv])+quicksort(arr[piv:])
-            for ]
+    if len(arr)>0:
+        ar1 = [n for n in arr if n < arr[len(arr)/2]]
+        ar2 = [n for n in arr if n > arr[len(arr)/2]]
+        return quicksort(ar1)+[arr[len(arr)/2]]+quicksort(ar2)
+    return []
 
 #pick pivot
 #smaller to left bigger to right
@@ -23,5 +28,5 @@ def quicksort(arr):
 #all vs>p are UH
 #PIVOT in FRP
     
-quicksort([6,3,8,1,4])
+print quicksort([6,3,8,1,4])
 
